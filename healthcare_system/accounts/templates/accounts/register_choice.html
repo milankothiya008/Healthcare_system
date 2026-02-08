@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Healthcare System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(120deg, #e0f7fa, #ffffff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 900px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .roles {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .role-card {
+            flex: 1;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #0097a7;
+        }
+
+        .role-card h2 {
+            margin-bottom: 10px;
+            color: #0097a7;
+        }
+
+        .role-card p {
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Create an Account</h1>
+    <p class="subtitle">Choose how you want to register</p>
+
+    <div class="roles">
+        <div class="role-card" onclick="goTo('patient')">
+            <h2>Patient</h2>
+            <p>Book appointments, view hospitals & doctors</p>
+        </div>
+
+        <div class="role-card" onclick="goTo('doctor')">
+            <h2>Doctor</h2>
+            <p>Manage appointments, availability & patients</p>
+        </div>
+
+        <div class="role-card" onclick="goTo('hospital-admin')">
+            <h2>Hospital Admin</h2>
+            <p>Manage hospital, doctors & emergency cases</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goTo(role) {
+        window.location.href = "/register/" + role + "/";
+    }
+</script>
+
+</body>
+</html>
