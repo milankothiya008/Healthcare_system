@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Profile</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .profile-row {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #444;
+        }
+
+        img {
+            max-width: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        a.back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Manage Profile</h2>
+</header>
+
+<div class="container">
+    <div class="card">
+
+        {% if profile.profile_photo %}
+            <img src="{{ profile.profile_photo.url }}" alt="Profile Photo">
+        {% endif %}
+
+        <div class="profile-row">
+            <label>Email</label>
+            <div class="value">{{ request.user.email }}</div>
+        </div>
+
+        <div class="profile-row">
+            <label>Address</label>
+            <div class="value">{{ profile.address|default:"Not set" }}</div>
+        </div>
+
+        <div class="profile-row">
+            <label>City</label>
+            <div class="value">{{ profile.city|default:"Not set" }}</div>
+        </div>
+
+        <div class="profile-row">
+            <label>Date of Birth</label>
+            <div class="value">{{ profile.date_of_birth|default:"Not set" }}</div>
+        </div>
+
+        <a href="/patient/home/" class="back">← Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>
